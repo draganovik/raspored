@@ -4,15 +4,25 @@
       <img ref="displaySchedule" :src="urlValue" alt="Tabela rasporeda" type="image/svg+xml">
     </div>
     <div id="div-selector">
-      <b-button v-b-modal.modalPopover variant="primary">Izaberite drugi raspored</b-button>
+      <b-button v-b-modal.modalStu variant="outline-primary" size="lg">Odeljenja</b-button>
       <b-modal
-        id="modalPopover"
+        id="modalStu"
         centered
         title="Odeljenja Mitrovačke Gimnazije:"
         ok-only
-        @ok="handleModal"
+        @ok="handleModalStu"
       >
-        <ScheduleSelector ref="selectorModal"/>
+        <ScheduleSelector ref="selectorModalStu"/>
+      </b-modal>
+      <b-button v-b-modal.modalProf variant="outline-primary" size="lg">Profesori</b-button>
+      <b-modal
+        id="modalProf"
+        centered
+        title="Profesori Mitrovačke Gimnazije:"
+        ok-only
+        @ok="handleModalProf"
+      >
+        <ProfessorSelector ref="selectorModalProf"/>
       </b-modal>
     </div>
     <div id="div-display-bells">
@@ -23,6 +33,7 @@
 
 <script>
 import ScheduleSelector from "@/components/ScheduleSelector.vue";
+import ProfessorSelector from "@/components/ProfessorSelector.vue";
 
 export default {
   name: "home",
@@ -32,11 +43,16 @@ export default {
     };
   },
   components: {
-    ScheduleSelector
+    ScheduleSelector,
+    ProfessorSelector
   },
   methods: {
-    handleModal() {
-      this.$refs.selectorModal.CacheSelected();
+    handleModalStu() {
+      this.$refs.selectorModalStu.CacheSelected();
+      this.urlValue = "/assets/gmsm/" + this.getSelected() + ".svg";
+    },
+    handleModalProf() {
+      this.$refs.selectorModalProf.CacheSelected();
       this.urlValue = "/assets/gmsm/" + this.getSelected() + ".svg";
     },
     getSelected() {
@@ -54,8 +70,12 @@ export default {
 .home {
   display: grid;
 }
-button {
-  color: whitesmoke;
+#div-selector {
+  display: flex;
+  justify-content: center;
+}
+#div-selector button {
+  margin: 0.5em;
 }
 #div-display-bells {
   width: 64vmin;
@@ -74,6 +94,10 @@ button {
   height: auto;
   margin: auto;
   transition-duration: 0.2s;
+}
+#div-display-schedule img {
+  width: 100%;
+  font-family: sans-serif;
 }
 @media screen and (max-width: 640px) {
   #div-display-schedule {
