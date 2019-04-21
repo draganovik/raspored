@@ -15,34 +15,34 @@
   </div>
 </template>
 <script>
-import AppBar from "@/components/AppBar.vue";
+import AppBar from '@/components/AppBar.vue'
 export default {
-  data() {
+  data () {
     return {
-      DarkMode: localStorage["DarkMode"] || false
-    };
+      DarkMode: localStorage['DarkMode'] || false
+    }
   },
   components: {
     AppBar
   },
   watch: {
-    DarkMode: function(val) {
-      localStorage["DarkMode"] = val;
+    DarkMode: function (val) {
+      localStorage['DarkMode'] = val
       if (val === true) {
-        document.body.classList.add("invert");
+        document.body.classList.add('invert')
       } else {
-        document.body.classList.remove("invert");
+        document.body.classList.remove('invert')
       }
     }
   },
-  mounted() {
-    if (this.DarkMode === "true") {
-      document.body.classList.add("invert");
+  mounted () {
+    if (this.DarkMode === 'true') {
+      document.body.classList.add('invert')
     } else {
-      document.body.classList.remove("invert");
+      document.body.classList.remove('invert')
     }
   }
-};
+}
 </script>
 
 <style>
