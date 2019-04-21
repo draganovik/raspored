@@ -1,6 +1,6 @@
 <template>
   <div class="PSelector">
-    <b-form-input list="my-list-id" v-model="SelectedProfessor"></b-form-input>
+    <b-form-input placeholder="Unesi ime..." list="my-list-id" v-model="SelectedProfessor"></b-form-input>
 
     <datalist id="my-list-id">
       <option v-bind:key="item" v-for="item in professorsList">{{ item }}</option>
