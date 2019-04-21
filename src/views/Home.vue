@@ -57,7 +57,7 @@ export default {
     },
     getSelected () {
       if (
-        localStorage['SelectedProfessor'] !== null &&
+        localStorage['SelectedProfessor'] !== undefined &&
         localStorage['SelectedProfessor'] !== '0'
       ) {
         return localStorage['SelectedProfessor']
