@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b94f1869303203031c9b97a6df8692be.js"
+  "/precache-manifest.d7b21c38aa39a84b632482b5fcc8fea6.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Raspored"});

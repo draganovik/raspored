@@ -123,8 +123,9 @@ export default {
     width: 80vmin;
     padding: 0.4em;
   }
-  b-button {
-    size: sm;
+  #div-selector button {
+    margin: 0.4em;
+    width: 8em;
   }
 }
 @media screen and (max-height: 700px) and (min-width: 640px) {
