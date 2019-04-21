@@ -5,7 +5,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
@@ -29,5 +29,12 @@ export default {}
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+@media screen and (max-width: 600px) {
+  #app-header label {
+    margin: auto;
+    font-size: 12pt;
+    font-weight: 600;
+  }
 }
 </style>

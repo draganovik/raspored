@@ -81,6 +81,7 @@ export default {
     CacheSelected () {
       localStorage['SelectedYear'] = this.selectedYear
       localStorage['SelectedClass'] = this.selectedClass
+      localStorage['SelectedProfessor'] = '0'
     }
   }
 }

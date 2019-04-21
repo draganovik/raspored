@@ -4,7 +4,7 @@
       <img ref="displaySchedule" :src="urlValue" alt="Tabela rasporeda" type="image/svg+xml">
     </div>
     <div id="div-selector">
-      <b-button v-b-modal.modalStu variant="outline-primary" size="lg">Odeljenja</b-button>
+      <b-button v-b-modal.modalStu variant="outline-primary">Odeljenja</b-button>
       <b-modal
         id="modalStu"
         centered
@@ -14,7 +14,7 @@
       >
         <ScheduleSelector ref="selectorModalStu"/>
       </b-modal>
-      <b-button v-b-modal.modalProf variant="outline-primary" size="lg">Profesori</b-button>
+      <b-button v-b-modal.modalProf variant="outline-primary">Profesori</b-button>
       <b-modal
         id="modalProf"
         centered
@@ -32,39 +32,46 @@
 </template>
 
 <script>
-import ScheduleSelector from "@/components/ScheduleSelector.vue";
-import ProfessorSelector from "@/components/ProfessorSelector.vue";
+import ScheduleSelector from '@/components/ScheduleSelector.vue'
+import ProfessorSelector from '@/components/ProfessorSelector.vue'
 
 export default {
-  name: "home",
-  data() {
+  name: 'home',
+  data () {
     return {
-      urlValue: "/assets/gmsm/" + this.getSelected() + ".svg"
-    };
+      urlValue: '/assets/gmsm/' + this.getSelected() + '.svg'
+    }
   },
   components: {
     ScheduleSelector,
     ProfessorSelector
   },
   methods: {
-    handleModalStu() {
-      this.$refs.selectorModalStu.CacheSelected();
-      this.urlValue = "/assets/gmsm/" + this.getSelected() + ".svg";
+    handleModalStu () {
+      this.$refs.selectorModalStu.CacheSelected()
+      this.urlValue = '/assets/gmsm/' + this.getSelected() + '.svg'
     },
-    handleModalProf() {
-      this.$refs.selectorModalProf.CacheSelected();
-      this.urlValue = "/assets/gmsm/" + this.getSelected() + ".svg";
+    handleModalProf () {
+      this.$refs.selectorModalProf.CacheSelected()
+      this.urlValue = '/assets/gmsm/' + this.getSelected() + '.svg'
     },
-    getSelected() {
-      if (localStorage["SelectedClass"] !== "0") {
-        return (
-          localStorage["SelectedYear"] + localStorage["SelectedClass"] || "I1"
-        );
+    getSelected () {
+      if (
+        localStorage['SelectedProfessor'] !== null &&
+        localStorage['SelectedProfessor'] !== '0'
+      ) {
+        return localStorage['SelectedProfessor']
+      } else {
+        if (localStorage['SelectedClass'] !== '0') {
+          return (
+            localStorage['SelectedYear'] + localStorage['SelectedClass'] || 'I1'
+          )
+        }
+        return localStorage['SelectedYear']
       }
-      return localStorage["SelectedYear"];
     }
   }
-};
+}
 </script>
 <style scoped>
 .home {
@@ -73,6 +80,7 @@ export default {
 #div-selector {
   display: flex;
   justify-content: center;
+  padding: 1em;
 }
 #div-selector button {
   margin: 0.5em;
@@ -83,6 +91,7 @@ export default {
   padding: 2em;
   height: auto;
   margin: auto;
+  margin-bottom: 3em;
   transition-duration: 0.2s;
 }
 #div-display-schedule {
@@ -101,16 +110,19 @@ export default {
 }
 @media screen and (max-width: 640px) {
   #div-display-schedule {
-    width: 100vmin;
-    padding: 1em;
-    padding-bottom: 0.5em;
-    padding-top: 1.5em;
+    width: 100%;
+    padding: 0.4em;
+    margin-top: 0.5em;
+  }
+  #div-display-schedule img {
+    width: 100%;
   }
   #div-display-bells {
     width: 80vmin;
-    padding: 1em;
-    padding-bottom: 0.5em;
-    padding-top: 2em;
+    padding: 0.4em;
+  }
+  b-button {
+    size: sm;
   }
 }
 @media screen and (max-height: 700px) and (min-width: 640px) {
