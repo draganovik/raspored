@@ -66,7 +66,7 @@ export default {
 }
 #app-content {
   height: 100vh;
-  padding-top: 3.5em;
+  padding-top: 4em;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   overflow-y: scroll;

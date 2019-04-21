@@ -33,8 +33,8 @@ export default {}
 @media screen and (max-width: 600px) {
   #app-header label {
     margin: auto;
-    font-size: 12pt;
-    font-weight: 600;
+    font-size: 14pt;
+    font-weight: 500;
   }
 }
 </style>

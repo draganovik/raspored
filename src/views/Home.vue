@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div id="div-display-schedule">
-      <img ref="displaySchedule" :src="urlValue" alt="Tabela rasporeda" type="image/svg+xml">
+      <img ref="displaySchedule" :src="urlValue" alt="Izaberite raspored za prikaz" type="image/svg+xml">
     </div>
     <div id="div-selector">
       <b-button v-b-modal.modalStu variant="outline-primary">Odeljenja</b-button>
@@ -83,7 +83,9 @@ export default {
   padding: 1em;
 }
 #div-selector button {
-  margin: 0.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  width: 10em;
 }
 #div-display-bells {
   width: 64vmin;
