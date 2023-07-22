@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     CacheSelected () {
-      localStorage['SelectedProfessor'] = this.SelectedProfessor
+      localStorage.SelectedProfessor = this.SelectedProfessor
     }
   }
 }

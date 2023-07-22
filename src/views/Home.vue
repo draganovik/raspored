@@ -1,10 +1,19 @@
 <template>
   <div class="home">
     <div id="div-display-schedule">
-      <img ref="displaySchedule" :src="urlValue" alt="Izaberite raspored za prikaz" type="image/svg+xml">
+      <img
+        ref="displaySchedule"
+        :src="urlValue"
+        alt="Izaberite raspored za prikaz"
+        type="image/svg+xml"
+      />
     </div>
+
     <div id="div-selector">
-      <b-button v-b-modal.modalStu variant="outline-primary">Odeljenja</b-button>
+      <b-button v-b-modal.modalStu variant="outline-primary">
+        Odeljenja
+      </b-button>
+
       <b-modal
         id="modalStu"
         centered
@@ -12,9 +21,13 @@
         ok-only
         @ok="handleModalStu"
       >
-        <ScheduleSelector ref="selectorModalStu"/>
+        <ScheduleSelector ref="selectorModalStu" />
       </b-modal>
-      <b-button v-b-modal.modalProf variant="outline-primary">Profesori</b-button>
+
+      <b-button v-b-modal.modalProf variant="outline-primary">
+        Profesori
+      </b-button>
+
       <b-modal
         id="modalProf"
         centered
@@ -22,11 +35,12 @@
         ok-only
         @ok="handleModalProf"
       >
-        <ProfessorSelector ref="selectorModalProf"/>
+        <ProfessorSelector ref="selectorModalProf" />
       </b-modal>
     </div>
+
     <div id="div-display-bells">
-      <img src="/assets/bells_ab.svg" alt="Lista zvona">
+      <img src="/assets/bells_ab.svg" alt="Lista zvona" />
     </div>
   </div>
 </template>
@@ -34,13 +48,10 @@
 <script>
 import ScheduleSelector from '@/components/ScheduleSelector.vue'
 import ProfessorSelector from '@/components/ProfessorSelector.vue'
-
 export default {
-  name: 'home',
+  name: 'home-page',
   data () {
-    return {
-      urlValue: '/assets/gmsm/' + this.getSelected() + '.svg'
-    }
+    return { urlValue: '/assets/gmsm/' + this.getSelected() + '.svg' }
   },
   components: {
     ScheduleSelector,
@@ -57,22 +68,21 @@ export default {
     },
     getSelected () {
       if (
-        localStorage['SelectedProfessor'] !== undefined &&
-        localStorage['SelectedProfessor'] !== '0'
+        localStorage.SelectedProfessor !== undefined &&
+        localStorage.SelectedProfessor !== '0'
       ) {
-        return localStorage['SelectedProfessor']
+        return localStorage.SelectedProfessor
       } else {
-        if (localStorage['SelectedClass'] !== '0') {
-          return (
-            localStorage['SelectedYear'] + localStorage['SelectedClass'] || 'I1'
-          )
+        if (localStorage.SelectedClass !== '0') {
+          return localStorage.SelectedYear + localStorage.SelectedClass || 'I1'
         }
-        return localStorage['SelectedYear']
+        return localStorage.SelectedYear
       }
     }
   }
 }
 </script>
+
 <style scoped>
 .home {
   display: grid;

@@ -39,14 +39,14 @@ export default {
   name: 'ScheduleSelector',
   data () {
     return {
-      selectedYear: localStorage['SelectedYear'] || 'I',
+      selectedYear: localStorage.SelectedYear || 'I',
       years: [
         { text: 'I', value: 'I' },
         { text: 'II', value: 'II' },
         { text: 'III', value: 'III' },
         { text: 'IV', value: 'IV' }
       ],
-      selectedClass: localStorage['SelectedClass'] || '1',
+      selectedClass: localStorage.SelectedClass || '1',
       classes: [
         { text: '1', value: '1' },
         { text: '2', value: '2' },
@@ -79,9 +79,9 @@ export default {
       }
     },
     CacheSelected () {
-      localStorage['SelectedYear'] = this.selectedYear
-      localStorage['SelectedClass'] = this.selectedClass
-      localStorage['SelectedProfessor'] = '0'
+      localStorage.SelectedYear = this.selectedYear
+      localStorage.SelectedClass = this.selectedClass
+      localStorage.SelectedProfessor = '0'
     }
   }
 }

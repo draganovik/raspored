@@ -19,7 +19,7 @@ import AppBar from '@/components/AppBar.vue'
 export default {
   data () {
     return {
-      DarkMode: localStorage['DarkMode'] || false
+      DarkMode: localStorage.DarkMode || false
     }
   },
   components: {
@@ -27,7 +27,7 @@ export default {
   },
   watch: {
     DarkMode: function (val) {
-      localStorage['DarkMode'] = val
+      localStorage.DarkMode = val
       if (val === true) {
         document.body.classList.add('invert')
       } else {
